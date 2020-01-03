@@ -1,0 +1,43 @@
+aws ec2 run-instances \
+    --image-id ami-07728e9e2742b0662 \
+    --security-group-ids sg-9ef8d4e3 \
+    --count 1 \
+    --instance-type m4.xlarge \
+    --key-name bert3 \
+    --query "Instances[0].InstanceId"
+
+create ebs volume for dataset
+
+aws ec2 create-volume \
+    --size 10 \
+    --region us-west-2 \
+    --availability-zone us-west-2b \
+    --volume-type gp2 \
+    --tag-specifications 'ResourceType=volume,Tags=[{Key=Name,Value=DL-datasets-checkpoints}]'
+
+aws ec2 attach-volume \
+    --volume-id vol-08e516936f0a3cd8a  \
+    --instance-id i-0e9b5db53542d5164 \
+    --device /dev/sdf
+
+sudo mkdir /Data
+sudo mkfs -t xfs /dev/xvdf
+sudo mount /dev/xvdf /Data
+sudo chown -R ubuntu: /Data/
+cd /Data
+mkdir Checkpoints
+mkdir Config
+mkdir Instances
+mkdir Vocab
+
+aws iam create-role \
+    --role-name DL-Training \
+    --assume-role-policy-document '{"Version":"2012-10-17","Statement":[{"Sid":"","Effect":"Allow","Principal":{"Service":"ec2.amazonaws.com"},"Action":"sts:AssumeRole"}]}'
+
+aws iam create-policy \
+    --policy-name ec2-permissions-dl-training  \
+    --policy-document file://Data/Config/ec2-permissions-dl-training.json
+
+aws iam attach-role-policy \
+    --policy-arn arn:aws:iam::776510605790:policy/ec2-permissions-dl-training \
+    --role-name DL-Training
