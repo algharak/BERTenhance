@@ -42,7 +42,7 @@ scenario ={
             'force_pretrn_gen_eval':False,
             'use_small_dataset':    False,
             'enable_enhancement':   False,
-            'use_short_files':      False,
+            'use_shorgt_files':      False,
             'enable_original':      not 'enable_enhancement',
             'num_of_books_long':    BOOK_NUMBS,
             'num_of_books_short':   BOOK_NUMBS_SMALL,

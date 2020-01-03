@@ -1,0 +1,14 @@
+/Data/Instances/output_file_tr.txt
+/Data/Checkpoints/model.ckpt-0.data-00000-of-00001
+/Data/Instances/**
+/Data/Training_Data_Raw_Text/**
+/Data/Instances_300_5ins/**
+/Data/Misc/**
+/venv/**
+/Config
+/__py*
+j*
+.*
+mygrep.sh
+.idea*
+
