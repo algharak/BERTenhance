@@ -22,7 +22,7 @@ import random
 
 BOOK_SOURCE_DIR         =   'Training_Data_Raw_Text/txt'
 BOOK_SOURCE_DIR_SHORT   =   'Training_Data_Raw_Text/txt_short'
-BOOK_NUMBS              =   7
+BOOK_NUMBS              =   20
 BOOK_NUMBS_SMALL        =   5
 VOCAB_FILE_NAME         =   'Data/Vocab/vocab.txt'
 TR_INSTANES_FILE        =   'output_file_tr.txt'
@@ -39,14 +39,14 @@ scenario ={
             'do_train':             True,
             'do_eval':              False,
             'force_pretrn_gen_trn': True,
-            'force_pretrn_gen_eval':True,
+            'force_pretrn_gen_eval':False,
             'use_small_dataset':    False,
             'enable_enhancement':   False,
             'use_short_files':      False,
             'enable_original':      not 'enable_enhancement',
             'num_of_books_long':    BOOK_NUMBS,
             'num_of_books_short':   BOOK_NUMBS_SMALL,
-            'enable_insertions':    True,
+            'enable_insertions':    False,
             'num_insertions':       NUM_INSERTION,
             'input_data_dir_long':  os.path.join(PATH,BOOK_SOURCE_DIR),
             'input_data_dir_short': os.path.join(PATH,BOOK_SOURCE_DIR_SHORT),
