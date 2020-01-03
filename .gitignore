@@ -9,4 +9,5 @@ j*
 mygrep.sh
 .idea*
 /Data/Misc/**
-/Data/Misc/
+/Data/Misc/*
+
