@@ -42,7 +42,7 @@ scenario ={
             'force_pretrn_gen_eval':False,
             'use_small_dataset':    False,
             'enable_enhancement':   False,
-            'use_shorgt_files':      False,
+            'use_short_files':      False,
             'enable_original':      not 'enable_enhancement',
             'num_of_books_long':    BOOK_NUMBS,
             'num_of_books_short':   BOOK_NUMBS_SMALL,
@@ -122,8 +122,8 @@ def run_training(**t_params):
     RFLAGS.num_of_insertions = t_params['num_insertions']
     RFLAGS.enable_insertions = t_params['enable_insertions']
 
-    RFLAGS.num_train_steps = 4000
-    RFLAGS.num_warmup_steps = 2000 # added this since the loss drops faster
+    RFLAGS.num_train_steps = 2000
+    RFLAGS.num_warmup_steps = 1000 # added this since the loss drops faster
     RFLAGS.learning_rate = 5e-4 # the original was 5e-5
     rp_main(1)
 
