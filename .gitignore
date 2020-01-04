@@ -10,4 +10,5 @@ mygrep.sh
 .idea*
 /Data/Misc/**
 /Data/Misc/*
-/Data/Misc/
+/Data/Misc/mod_metrics/**
+
